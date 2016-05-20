@@ -1,2 +1,10 @@
 var package = require('./package.json');
-module.exports = { version: package.version };
+var info = require('./info.js');
+
+info.version = package.version;
+
+module.exports = Object.assign(
+  {},
+  { version: package.version },
+  info
+);
